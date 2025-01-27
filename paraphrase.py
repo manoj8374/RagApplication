@@ -17,7 +17,7 @@ def get_paraphrase(question):
     prompt = f"Paraphrase this query: {question}. Don't give any reasoning only the paraphrased version of the query. Give me 5 different versions."
 
     completion = client.chat.completions.create(
-        model="llama-3.1-70b-versatile",
+        model="llama-3.3-70b-versatile",
         messages=[
             {"role": "user", "content": prompt}
         ],

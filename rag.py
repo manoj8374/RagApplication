@@ -23,7 +23,7 @@ embeddings = model.encode(chunks).tolist()
 # Qdrant Configuration
 api_key = "ETlTa7qqoQWLToVpMTgLECxSsrEXuT7fpAbrg97QEHvYvyBhYPOpcw"
 qdrant_url = "https://2bf18249-d687-4b2e-9f7e-2eeba4f613c7.europe-west3-0.gcp.cloud.qdrant.io:6333/"
-collection_name = "insurance_collection_doc_2"
+collection_name = "insurance_collection_doc_3"
 vector_size = 384
 vector_params = VectorParams(size=vector_size, distance=Distance.COSINE)
 client = QdrantClient(url=qdrant_url, api_key=api_key, timeout=60)

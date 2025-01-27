@@ -6,3 +6,7 @@ qdrant-client
 groq
 pydantic
 requests
+PyMuPDF
+langchain
+transformers
+langchain-huggingface

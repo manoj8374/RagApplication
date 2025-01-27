@@ -2,6 +2,7 @@ import os
 import fitz
 import qdrant_client
 from dotenv import load_dotenv
+import uvicorn
 from qdrant_client import QdrantClient
 from qdrant_client.models import VectorParams, Distance
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -19,10 +20,6 @@ load_dotenv()
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-# qdrant_client = QdrantClient(
-#     url="https://8db3766a-65c1-409f-aaa9-79d79321e863.europe-west3-0.gcp.cloud.qdrant.io",
-#     api_key="xyB4yWC3aXxMfv8VET4cLZdpwMziZ0EM2j3BMQ6gUy--t6G7jVmx8w"
-# )
 
 qdrant_client = QdrantClient(
     url="https://2bf18249-d687-4b2e-9f7e-2eeba4f613c7.europe-west3-0.gcp.cloud.qdrant.io",
@@ -130,6 +127,7 @@ def process_question(question):
     }
     return structured_output
 
+
 app = FastAPI()
 
 app.add_middleware(
@@ -149,3 +147,5 @@ def create_item(item: dict):
     question = item["ChatHistory"]
     structured_output = process_question(question)
     return structured_output
+
+# print(process_question("What is a car insurance?"))
